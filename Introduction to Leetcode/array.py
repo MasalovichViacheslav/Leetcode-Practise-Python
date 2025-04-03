@@ -138,3 +138,111 @@ Constraints:
 # print([105,924,32,968], "-->", Solution().canBeIncreasing([105,924,32,968]))
 
 
+# https://leetcode.com/problems/can-place-flowers/description/?envType=problem-list-v2&envId=array
+'''
+605. Can Place Flowers
+
+You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted 
+in adjacent plots.
+
+Given an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means not empty, and an integer n, 
+return true if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule and false 
+otherwise.
+
+
+Example 1:
+Input: flowerbed = [1,0,0,0,1], n = 1
+Output: true
+
+
+Example 2:
+Input: flowerbed = [1,0,0,0,1], n = 2
+Output: false
+ 
+
+Constraints:
+
+1 <= flowerbed.length <= 2 * 10 ** 4
+flowerbed[i] is 0 or 1.
+There are no two adjacent flowers in flowerbed.
+0 <= n <= flowerbed.length
+'''
+
+# #Solution
+# class Solution(object):
+#     def canPlaceFlowers(self, flowerbed, n):
+#         """
+#         :type flowerbed: List[int]
+#         :type n: int
+#         :rtype: bool
+#         """
+#         if len(flowerbed) <= 2 and n == 1:
+#             if 1 in flowerbed:
+#                 return False
+#             else:
+#                 return True
+#
+#         elif len(flowerbed) <= 2 and n > 1:
+#             return False
+#
+#         else:
+#             plots_for_plant = 0
+#             zeros_sequence = 0
+#             zeros_sequence_start_index = None
+#
+#             for index in range(len(flowerbed)):
+#                 if n > plots_for_plant:
+#
+#                     if flowerbed[index] == 0:
+#                         zeros_sequence += 1
+#
+#                         if zeros_sequence_start_index is None:
+#                             zeros_sequence_start_index = index
+#
+#                         elif index == len(flowerbed) - 1:
+#                             if zeros_sequence_start_index == 0:
+#                                 plots_for_plant += (zeros_sequence + 1) // 2
+#                             else:
+#                                 plots_for_plant += zeros_sequence // 2
+#
+#                     # cases when flowerbed[index] == 1 and there is a sequence of zeros
+#                     elif zeros_sequence_start_index is not None:
+#
+#                         if zeros_sequence_start_index == 0:
+#                             plots_for_plant += zeros_sequence // 2
+#
+#                         else:
+#                             plots_for_plant += (zeros_sequence - 1) // 2
+#
+#                         zeros_sequence_start_index = None
+#                         zeros_sequence = 0
+#
+#                 # stop iteration if enough suitable plots are found and further iteration is not required
+#                 else:
+#                     return True
+#
+#             # after checking the whole flowerbed compare found q-ty of suitable plots with required q-ty
+#             if plots_for_plant >= n:
+#                 return True
+#             else:
+#                 return False
+#
+#
+# # Testcases
+# print(Solution().canPlaceFlowers([0,1,1,1,1,1,0], 2), "must be False")
+# print(Solution().canPlaceFlowers([0,0,1,1,1,1,0], 2), "must be False")
+# print(Solution().canPlaceFlowers([0,0,1,1,1,0,0], 2), "must be True")
+# print(Solution().canPlaceFlowers([0,0,0,1,1,1,0,0], 3), "must be False")
+# print(Solution().canPlaceFlowers([0,0,0,0,1,1,0,0], 3), "must be True")
+# print(Solution().canPlaceFlowers([0,0,1,0,0,0,1,0], 2), "must be True")
+# print(Solution().canPlaceFlowers([0,0,1,0,0,0,0,1,0], 3), "must be False")
+# print(Solution().canPlaceFlowers([0,0,1,0,0,0,0,0,1,0], 3), "must be True")
+# print(Solution().canPlaceFlowers([0], 1), "must be True")
+# print(Solution().canPlaceFlowers([1], 1), "must be False")
+# print(Solution().canPlaceFlowers([1,0], 1), "must be False")
+# print(Solution().canPlaceFlowers([0,0], 2), "must be False")
+# print(Solution().canPlaceFlowers([1,0], 2), "must be False")
+# print(Solution().canPlaceFlowers([0,0,0], 2), "must be True")
+# print(Solution().canPlaceFlowers([1,1,1], 2), "must be False")
+
+
