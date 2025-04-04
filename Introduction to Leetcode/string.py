@@ -177,3 +177,50 @@ There will be at least 1 token.
 # print(Solution().countValidWords(sent), '-->', 49)
 
 
+# https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/?envType=problem-list-v2&envId=string
+'''
+28. Find the Index of the First Occurrence in a String
+
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle 
+is not part of haystack. 
+
+Example 1:
+Input: haystack = "sadbutsad", needle = "sad"
+Output: 0
+Explanation: "sad" occurs at index 0 and 6.
+The first occurrence is at index 0, so we return 0.
+
+Example 2:
+Input: haystack = "leetcode", needle = "leeto"
+Output: -1
+Explanation: "leeto" did not occur in "leetcode", so we return -1.
+ 
+
+Constraints:
+1 <= haystack.length, needle.length <= 10 ** 4
+haystack and needle consist of only lowercase English characters.
+'''
+
+# Solution 1 - too Introduction to Leetcode
+# class Solution:
+#     def strStr(self, haystack: str, needle: str) -> int:
+#         return haystack.find(needle)
+
+# Solution 2
+# class Solution:
+#     def strStr(self, haystack: str, needle: str) -> int:
+#         if needle not in haystack:
+#             return -1
+#         else:
+#             for index in range(len(haystack)):
+#                 if haystack[index] == needle[0] and haystack[index: index + len(needle)] == needle:
+#                     return index
+
+
+# Testcases
+# print(Solution().strStr('sadbutsad', 'sad'), '-->', 0)
+# print(Solution().strStr('leetcode', 'leeto'), '-->', -1)
+# print(Solution().strStr('s', 's'), '-->', 0)
+# print(Solution().strStr('s', 'c'), '-->', -1)
+
+
