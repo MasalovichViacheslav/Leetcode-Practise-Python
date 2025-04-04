@@ -287,3 +287,60 @@ Constraints:
 # print(Solution().convertToTitle(16384), '-->', 'XFD')
 
 
+# https://leetcode.com/problems/day-of-the-year/description/?envType=problem-list-v2&envId=string
+'''
+1154. Day of the Year
+
+Given a string date representing a Gregorian calendar date formatted as YYYY-MM-DD, return the day number of the year.
+
+Example 1:
+Input: date = "2019-01-09"
+Output: 9
+Explanation: Given date is the 9th day of the year in 2019.
+
+Example 2:
+Input: date = "2019-02-10"
+Output: 41
+ 
+
+Constraints:
+
+date.length == 10
+date[4] == date[7] == '-', and all other date[i]'s are digits
+date represents a calendar date between Jan 1st, 1900 and Dec 31st, 2019.
+'''
+
+# Solution
+# class Solution:
+#     def dayOfYear(self, date: str) -> int:
+#         # yyyy_mm_dd_list = list(map(int, date.split('-')))
+#         yyyy_mm_dd_list = [int(elem) for elem in date.split('-')]
+#         month_duration_leap_year = {1:31, 2:29, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
+#         month_duration_non_leap_year = month_duration_leap_year.copy()
+#         month_duration_non_leap_year[2] = 28
+#
+#         days_passed = 0
+#         if yyyy_mm_dd_list[0] % 4 == 0 and (yyyy_mm_dd_list[0] % 100 != 0 or yyyy_mm_dd_list[0] % 400 == 0):
+#             if yyyy_mm_dd_list[1] == 1:
+#                 days_passed = yyyy_mm_dd_list[2]
+#             else:
+#                 for month in range(1, yyyy_mm_dd_list[1]):
+#                     days_passed += month_duration_leap_year[month]
+#                 days_passed += yyyy_mm_dd_list[2]
+#         else:
+#             if yyyy_mm_dd_list[1] == 1:
+#                 days_passed = yyyy_mm_dd_list[2]
+#             else:
+#                 for month in range(1, yyyy_mm_dd_list[1]):
+#                     days_passed += month_duration_non_leap_year[month]
+#                 days_passed += yyyy_mm_dd_list[2]
+#
+#         return days_passed
+#
+# # Testcases
+# print(Solution().dayOfYear("2019-01-09"), '-->', 9)
+# print(Solution().dayOfYear("2020-01-09"), '-->', 9)
+# print(Solution().dayOfYear("2000-03-10"), '-->', 70)
+# print(Solution().dayOfYear("2001-03-10"), '-->', 69)
+
+
