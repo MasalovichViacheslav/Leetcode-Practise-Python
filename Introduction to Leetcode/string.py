@@ -224,3 +224,66 @@ haystack and needle consist of only lowercase English characters.
 # print(Solution().strStr('s', 'c'), '-->', -1)
 
 
+# https://leetcode.com/problems/excel-sheet-column-title/description/?envType=problem-list-v2&envId=string
+'''
+168. Excel Sheet Column Title
+ 
+Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
+
+For example:
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...
+
+Example 1:
+Input: columnNumber = 1
+Output: "A"
+
+Example 2:
+Input: columnNumber = 28
+Output: "AB"
+
+Example 3:
+Input: columnNumber = 701
+Output: "ZY"
+ 
+
+Constraints:
+
+1 <= columnNumber <= 2 ** 31 - 1
+'''
+
+# Solution
+# class Solution:
+#     def convertToTitle(self, columnNumber: int) -> str:
+#         alphabet_generator = (chr(x) for x in range(65, 91))
+#         dictionary = dict(zip(range(1, 27), alphabet_generator))
+#         column_title = ''
+#
+#         while columnNumber > 0:
+#             division_remainder = columnNumber % 26
+#             if division_remainder != 0:
+#                 column_title += dictionary[division_remainder]
+#                 columnNumber //= 26
+#             else:
+#                 column_title += dictionary[26]
+#                 columnNumber = columnNumber // 26 - 1
+#
+#         return column_title[::-1]
+
+
+# Testcases
+# print(Solution().convertToTitle(1), '-->', 'A')
+# print(Solution().convertToTitle(28), '-->', 'AB')
+# print(Solution().convertToTitle(52), '-->', 'AZ')
+# print(Solution().convertToTitle(53), '-->', 'BA')
+# print(Solution().convertToTitle(702), '-->', 'ZZ')
+# print(Solution().convertToTitle(703), '-->', 'AAA')
+# print(Solution().convertToTitle(16384), '-->', 'XFD')
+
+
