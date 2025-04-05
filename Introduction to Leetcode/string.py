@@ -344,3 +344,55 @@ date represents a calendar date between Jan 1st, 1900 and Dec 31st, 2019.
 # print(Solution().dayOfYear("2001-03-10"), '-->', 69)
 
 
+# https://leetcode.com/problems/repeated-substring-pattern/description/?envType=problem-list-v2&envId=string
+'''
+459. Repeated Substring Pattern
+
+Given a string s, check if it can be constructed by taking a substring of it and appending multiple copies of the 
+substring together.
+
+ 
+
+Example 1:
+Input: s = "abab"
+Output: true
+Explanation: It is the substring "ab" twice.
+
+Example 2:
+Input: s = "aba"
+Output: false
+
+Example 3:
+Input: s = "abcabcabcabc"
+Output: true
+Explanation: It is the substring "abc" four times or the substring "abcabc" twice.
+ 
+
+Constraints:
+
+1 <= s.length <= 10 ** 4
+s consists of lowercase English letters.
+'''
+# class Solution:
+#     def repeatedSubstringPattern(self, s: str) -> bool:
+#         if len(s) == 1:
+#             return False
+#         elif len(s) == 2 and s[0] != s[1]:
+#             return False
+#         substring = ''
+#         for index in range(int(len(s) / 2 + 1) - 1):
+#             substring += s[index]
+#             if s.replace(substring, '') == '':
+#                 return True
+#         return False
+#
+# # Testcases
+# print(Solution().repeatedSubstringPattern('abab'), '-->', True)
+# print(Solution().repeatedSubstringPattern('aba'), '-->', False)
+# print(Solution().repeatedSubstringPattern('abcabcabcabc'), '-->', True)
+# print(Solution().repeatedSubstringPattern('a'), '-->', False)
+# print(Solution().repeatedSubstringPattern('aa'), '-->', True)
+# print(Solution().repeatedSubstringPattern('aaa'), '-->', True)
+# print(Solution().repeatedSubstringPattern('ab'), '-->', False)
+
+
