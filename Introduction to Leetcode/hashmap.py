@@ -272,3 +272,68 @@ Constraints:
 # print(Solution().maxSum([0]), '-->', 0)
 
 
+# https://leetcode.com/problems/word-pattern/description/?envType=problem-list-v2&envId=hash-table
+'''
+290. Word Pattern
+
+Given a pattern and a string s, find if s follows the same pattern.
+Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s. 
+Specifically:
+
+1. Each letter in pattern maps to exactly one unique word in s.
+2. Each unique word in s maps to exactly one letter in pattern.
+3. No two letters map to the same word, and no two words map to the same letter.
+ 
+
+Example 1:
+Input: pattern = "abba", s = "dog cat cat dog"
+Output: true
+Explanation:
+The bijection can be established as:
+'a' maps to "dog".
+'b' maps to "cat".
+
+Example 2:
+Input: pattern = "abba", s = "dog cat cat fish"
+Output: false
+
+Example 3:
+Input: pattern = "aaaa", s = "dog cat cat dog"
+Output: false
+
+
+Constraints:
+1 <= pattern.length <= 300
+pattern contains only lower-case English letters.
+1 <= s.length <= 3000
+s contains only lowercase English letters and spaces ' '.
+s does not contain any leading or trailing spaces.
+All the words in s are separated by a 
+single space.
+'''
+# Solution
+# class Solution:
+#     def wordPattern(self, pattern: str, s: str) -> bool:
+#         words_list = s.split(' ')
+#         if len(pattern) != len(words_list):
+#             return False
+#         letter_dict = {}
+#         for ind in range(len(pattern)):
+#             if pattern[ind] not in letter_dict:
+#                 if words_list[ind] not in letter_dict.values():
+#                     letter_dict[pattern[ind]] = words_list[ind]
+#                 else:
+#                     return False
+#             else:
+#                 if letter_dict[pattern[ind]] != words_list[ind]:
+#                     return False
+#         return True
+
+
+# # Testcases
+# print(Solution().wordPattern("abba", "dog cat cat dog"), '-->', True)
+# print(Solution().wordPattern("abba", "dog cat cat fish"), '-->', False)
+# print(Solution().wordPattern("aaaa", "dog cat cat dog"), '-->', False)
+# print(Solution().wordPattern("abba", "dog dog dog dog"), '-->', False)
+
+
