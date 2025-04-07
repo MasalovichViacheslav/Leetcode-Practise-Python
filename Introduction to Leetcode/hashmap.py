@@ -131,3 +131,79 @@ word consists of lowercase English letters only.
 # print(Solution().equalFrequency("aaaabbbbccc"), '-->', False)
 
 
+# https://leetcode.com/problems/check-if-n-and-its-double-exist/description/?envType=problem-list-v2&envId=hash-table
+'''
+1346. Check If N and Its Double Exist
+
+Given an array arr of integers, check if there exist two indices i and j such that :
+1. i != j
+2. 0 <= i, j < arr.length
+arr[i] == 2 * arr[j]
+ 
+
+Example 1:
+Input: arr = [10,2,5,3]
+Output: true
+Explanation: For i = 0 and j = 2, arr[i] == 10 == 2 * 5 == 2 * arr[j]
+
+Example 2:
+Input: arr = [3,1,7,11]
+Output: false
+Explanation: There is no i and j that satisfy the conditions.
+ 
+
+Constraints:
+
+2 <= arr.length <= 500
+-103 <= arr[i] <= 103
+'''
+
+#Solution 1
+# from typing import List
+#
+# class Solution:
+#     def checkIfExist(self, arr: List[int]) -> bool:
+#         for ind in range(len(arr) - 1):
+#             try:
+#                 # arr[i] > arr[j]
+#                 arr.index(arr[ind] / 2, ind + 1)
+#                 print('1st try', arr.index(arr[ind] / 2, ind + 1), ind)
+#                 return True
+#             except ValueError:
+#                 try:
+#                     # arr[j] > arr[i]
+#                     arr.index(arr[ind] * 2, ind + 1)
+#                     print('2nd try', arr.index(arr[ind] * 2, ind + 1), ind)
+#                     return True
+#                 except ValueError:
+#                     continue
+#         return False
+
+#Solution 2
+# from typing import List
+# from collections import Counter
+#
+# class Solution:
+#     def checkIfExist(self, arr: List[int]) -> bool:
+#         numb_dict = Counter(arr)
+#         for numb in numb_dict:
+#             if numb == 0 and numb_dict[numb] > 1:
+#                 return True
+#             if numb_dict[numb * 2] and numb != 0 or numb_dict[numb * 2] and numb != 0:
+#                 return True
+#         return False
+
+# Testcases
+# print(Solution().checkIfExist([10,2,5,3]), '-->', True)
+# print(Solution().checkIfExist([3,1,7,11]), '-->', False)
+# print(Solution().checkIfExist([-6,-3,1,7,11]), '-->', True)
+# print(Solution().checkIfExist([-6,1,7,11,-3]), '-->', True)
+# print(Solution().checkIfExist([1,7,11,-6,-3]), '-->', True)
+# print(Solution().checkIfExist([0,1,7,0,3]), '-->', True)
+# print(Solution().checkIfExist([1,7,0,3,0]), '-->', True)
+# print(Solution().checkIfExist([7,1,14,11]), '-->', True)
+# print(Solution().checkIfExist([7,15,3,4,30]), '-->', True)
+# print(Solution().checkIfExist([-2,0,10,-19,4,6,-8]), '-->', False)
+# print(Solution().checkIfExist([-20,8,-6,-14,0,-19,14,4]), '-->', True)
+
+
