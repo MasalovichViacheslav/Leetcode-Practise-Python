@@ -418,3 +418,61 @@ Constraints:
 # print(Solution().longestAlternatingSubarray([2,10,5], 7), "-->", 1)
 
 
+# https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times/description/?envType=problem-list-v2&envId=array
+'''
+1566. Detect Pattern of Length M Repeated K or More Times
+
+Given an array of positive integers arr, find a pattern of length m that is repeated k or more times.
+A pattern is a subarray (consecutive sub-sequence) that consists of one or more values, repeated multiple times 
+consecutively without overlapping. A pattern is defined by its length and the number of repetitions.
+
+Return true if there exists a pattern of length m that is repeated k or more times, otherwise return false.
+
+ 
+
+Example 1:
+
+Input: arr = [1,2,4,4,4,4], m = 1, k = 3
+Output: true
+Explanation: The pattern (4) of length 1 is repeated 4 consecutive times. Notice that pattern can be repeated k or more times but not less.
+Example 2:
+
+Input: arr = [1,2,1,2,1,1,1,3], m = 2, k = 2
+Output: true
+Explanation: The pattern (1,2) of length 2 is repeated 2 consecutive times. Another valid pattern (2,1) is also repeated 2 times.
+Example 3:
+
+Input: arr = [1,2,1,2,1,3], m = 2, k = 3
+Output: false
+Explanation: The pattern (1,2) is of length 2 but is repeated only 2 times. There is no pattern of length 2 that is repeated 3 or more times.
+ 
+
+Constraints:
+
+2 <= arr.length <= 100
+1 <= arr[i] <= 100
+1 <= m <= 100
+2 <= k <= 100
+'''
+
+# Solution
+# from typing import List
+#
+# class Solution:
+#     def containsPattern(self, arr: List[int], m: int, k: int) -> bool:
+#
+#         for ind in range(len(arr) - m * k + 1):
+#             if arr[ind: ind + m * k] == arr[ind: ind + m] * k:
+#                 return True
+#
+#         return False
+
+
+# Testcases
+# print(Solution().containsPattern([1,2,4,4,4,4], 1, 3), '-->', True)
+# print(Solution().containsPattern([1,2,1,2,1,1,1,3], 2, 2), '-->', True)
+# print(Solution().containsPattern([5,2,3,4,5], 2, 2), '-->', False)
+# print(Solution().containsPattern([5,2], 2, 2), '-->', False)
+# print(Solution().containsPattern([1,2,3,1,2], 2, 2), '-->', False)
+
+
