@@ -471,3 +471,83 @@ word consists of digits and lowercase English letters.
 # print(Solution().numDifferentIntegers("g"), '-->', 0)
 
 
+# https://leetcode.com/problems/find-the-largest-almost-missing-integer/description/?envType=problem-list-v2&envId=hash-table
+'''
+3471. Find the Largest Almost Missing Integer
+
+You are given an integer array nums and an integer k.
+An integer x is almost missing from nums if x appears in exactly one subarray of size k within nums.
+
+Return the largest almost missing integer from nums. If no such integer exists, return -1.
+
+A subarray is a contiguous sequence of elements within an array.
+ 
+
+Example 1:
+Input: nums = [3,9,2,1,7], k = 3
+Output: 7
+Explanation:
+1 appears in 2 subarrays of size 3: [9, 2, 1] and [2, 1, 7].
+2 appears in 3 subarrays of size 3: [3, 9, 2], [9, 2, 1], [2, 1, 7].
+3 appears in 1 subarray of size 3: [3, 9, 2].
+7 appears in 1 subarray of size 3: [2, 1, 7].
+9 appears in 2 subarrays of size 3: [3, 9, 2], and [9, 2, 1].
+We return 7 since it is the largest integer that appears in exactly one subarray of size k.
+
+Example 2:
+Input: nums = [3,9,7,2,1,7], k = 4
+Output: 3
+Explanation:
+1 appears in 2 subarrays of size 4: [9, 7, 2, 1], [7, 2, 1, 7].
+2 appears in 3 subarrays of size 4: [3, 9, 7, 2], [9, 7, 2, 1], [7, 2, 1, 7].
+3 appears in 1 subarray of size 4: [3, 9, 7, 2].
+7 appears in 3 subarrays of size 4: [3, 9, 7, 2], [9, 7, 2, 1], [7, 2, 1, 7].
+9 appears in 2 subarrays of size 4: [3, 9, 7, 2], [9, 7, 2, 1].
+We return 3 since it is the largest and only integer that appears in exactly one subarray of size k.
+
+Example 3:
+Input: nums = [0,0], k = 1
+Output: -1
+Explanation:
+There is no integer that appears in only one subarray of size 1.
+
+
+Constraints:
+
+1 <= nums.length <= 50
+0 <= nums[i] <= 50
+1 <= k <= nums.length
+'''
+# Solution
+
+# class Solution:
+#     def largestInteger(self, nums: List[int], k: int) -> int:
+#         subarrays_collection = []
+#         for ind in range(len(nums) - k + 1):
+#             subarray = nums[ind: ind + k]
+#             subarrays_collection.append(subarray)
+#
+#         # key value pair {-1:0} is dict for case when there is no number that appears only in one subarray
+#         one_appearance_number = {-1:0}
+#         for number in set(nums):
+#             counter = 0
+#             for subarray in subarrays_collection:
+#                 if number in subarray: counter += 1
+#             if counter == 1:
+#                 one_appearance_number[number] = counter
+#
+#         return max(one_appearance_number)
+
+
+# Testcases
+# print(Solution().largestInteger([3,9,2,1,7], 3), '-->', 7)
+# print(Solution().largestInteger([3,9,7,2,1,7], 4), '-->', 3)
+# print(Solution().largestInteger([0,0], 1), '-->', -1)
+# print(Solution().largestInteger([0,0,1,1,2,2], 1), '-->', -1)
+# print(Solution().largestInteger([0,1,2,3], 1), '-->', 3)
+# print(Solution().largestInteger([0,0,0,0], 1), '-->', -1)
+# print(Solution().largestInteger([5,5,5,5,5], 5), '-->', 5)
+# print(Solution().largestInteger([0,5,0], 1), '-->', 5)
+# print(Solution().largestInteger([0,0], 2), '-->', 0)
+# print(Solution().largestInteger([3,1,7,10,0], 1), '-->', 10)
+
