@@ -65,3 +65,71 @@ Constraints:
 # print(solution.maxProfit([10,1,4,7,3,9,0,20]), '--> expected:', 20)
 
 
+# https://leetcode.com/problems/valid-parentheses/
+'''
+20. Valid Parentheses
+
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+ 
+
+Example 1:
+Input: s = "()"
+Output: true
+
+Example 2:
+Input: s = "()[]{}"
+Output: true
+
+Example 3:
+Input: s = "(]"
+Output: false
+
+Example 4:
+Input: s = "([])"
+Output: true
+
+
+Constraints:
+
+1 <= s.length <= 10 ** 4
+s consists of parentheses only '()[]{}'.
+'''
+# class Solution:
+#     def isValid(self, s: str) -> bool:
+#         bracket_closing_queue = []
+#         opening = {'(': ')', '[': ']', '{': '}'}
+#         if len(s) % 2 != 0:
+#             return False
+#
+#         for bracket in s:
+#             if bracket in opening:
+#                 bracket_closing_queue.append(opening[bracket])
+#             else:
+#                 if not bracket_closing_queue:
+#                     return False
+#                 elif bracket != bracket_closing_queue[-1]:
+#                     return False
+#                 else:
+#                     del bracket_closing_queue[-1]
+#
+#         if bracket_closing_queue:
+#             return False
+#         else:
+#             return True
+#
+# # testcases
+# solution = Solution()
+# print(solution.isValid('()'), '--> expected:', True)
+# print(solution.isValid('()[]{}'), '--> expected:', True)
+# print(solution.isValid('(]'), '--> expected:', False)
+# print(solution.isValid('([])'), '--> expected:', True)
+# print(solution.isValid('{([}])'), '--> expected:', False)
+# print(solution.isValid('{'), '--> expected:', False)
+# print(solution.isValid('{({[])}}'), '--> expected:', False)
+
+
