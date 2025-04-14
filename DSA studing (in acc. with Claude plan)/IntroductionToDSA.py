@@ -133,3 +133,79 @@ s consists of parentheses only '()[]{}'.
 # print(solution.isValid('{({[])}}'), '--> expected:', False)
 
 
+# https://leetcode.com/problems/valid-palindrome/
+'''
+125. Valid Palindrome
+
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all 
+non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and 
+numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+Example 1:
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+
+Example 2:
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+
+Example 3:
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+
+Constraints:
+1 <= s.length <= 2 * 105
+s consists only of printable ASCII characters.
+'''
+# #Solution1
+# from collections import deque
+#
+# class Solution:
+#     def isPalindrome(self, s: str) -> bool:
+#         cleared_string = deque()
+#         cleared_reversed_string = deque()
+#         for char in s:
+#             if char.isalnum():
+#                 if char.isalpha():
+#                     char = char.lower()
+#                 cleared_string.append(char)
+#                 cleared_reversed_string.appendleft(char)
+#         return cleared_string == cleared_reversed_string
+#
+# #Solution2
+# class Solution:
+#     def isPalindrome(self, s: str) -> bool:
+#         cleared_string = []
+#         for char in s:
+#             if char.isalnum():
+#                 if char.isalpha():
+#                     char = char.lower()
+#                 cleared_string.append(char)
+#         return cleared_string == cleared_string[::-1]
+#
+# #Solution3
+# from array import array
+#
+# class Solution:
+#     def isPalindrome(self, s: str) -> bool:
+#         cleared_string = array('u')
+#         for char in s:
+#             if char.isalnum():
+#                 if char.isalpha():
+#                     char = char.lower()
+#                 cleared_string.append(char)
+#         return cleared_string == cleared_string[::-1]
+
+# testcases
+# solution = Solution()
+# print(solution.isPalindrome("A man, a plan, a canal: Panama"), '--> expected', True)
+# print(solution.isPalindrome("race a car"), '--> expected', False)
+# print(solution.isPalindrome(" "), '--> expected', True)
+
+
