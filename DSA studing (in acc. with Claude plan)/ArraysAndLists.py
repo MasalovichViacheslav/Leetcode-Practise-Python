@@ -75,3 +75,47 @@ from numpy.ma.core import negative
 # print(solution.plusOne([9,9,9,9,9]), '--> expected: ', [1,0,0,0,0,0])
 
 
+# https://leetcode.com/problems/move-zeroes/
+'''
+283. Move Zeroes
+
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero 
+elements.
+
+Note that you must do this in-place without making a copy of the array. 
+
+Example 1:
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+Example 2:
+Input: nums = [0]
+Output: [0]
+ 
+
+Constraints:
+1 <= nums.length <= 10 ** 4
+-2 ** 31 <= nums[i] <= 2 ** 31 - 1
+'''
+# Solution1
+# from typing import List
+#
+# class Solution:
+#     def moveZeroes(self, nums: List[int]) -> None:
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         for ind in range(-1, -(len(nums)) - 1, -1):
+#             if not nums[ind]:
+#                 nums.append(nums.pop(ind))
+#         return nums
+
+
+# testcases
+# solution = Solution()
+# print(solution.moveZeroes([1,0,0,3,0,4]), '--> expected: ', [1,3,4,0,0,0])
+# print(solution.moveZeroes([0,1,0,0,3,0,4]), '--> expected: ', [1,3,4,0,0,0,0])
+# print(solution.moveZeroes([0,1,0,0,5,3,0,4]), '--> expected: ', [1,5,3,4,0,0,0,0])
+# print(solution.moveZeroes([0,0,1,2,0,0,3,4,0,0]), '--> expected: ', [1,2,3,4,0,0,0,0,0,0])
+
+
