@@ -119,3 +119,111 @@ Constraints:
 # print(solution.moveZeroes([0,0,1,2,0,0,3,4,0,0]), '--> expected: ', [1,2,3,4,0,0,0,0,0,0])
 
 
+# https://leetcode.com/problems/maximum-subarray/description/
+'''
+53. Maximum Subarray
+
+Given an integer array nums, find the subarray with the largest sum, and return its sum. 
+
+Example 1:
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+
+Example 2:
+Input: nums = [1]
+Output: 1
+Explanation: The subarray [1] has the largest sum 1.
+
+Example 3:
+Input: nums = [5,4,-1,7,8]
+Output: 23
+Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
+ 
+
+Constraints:
+1 <= nums.length <= 10 ** 5
+-10 ** 4 <= nums[i] <= 10 ** 4 
+
+Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach,
+which is more subtle.
+'''
+# from typing import List
+#
+# class Solution:
+#     def maxSubArray(self, nums: List[int]) -> int:
+#
+#         positive_seq_sum = 0
+#         negative_seq_sum = 0
+#         sums = []
+#
+#         for number in nums:
+#
+#             if number > 0:
+#
+#                 if negative_seq_sum:
+#                     sums.append(negative_seq_sum)
+#                     negative_seq_sum = 0
+#
+#                 if not positive_seq_sum:
+#                     positive_seq_sum = number
+#                 else:
+#                     positive_seq_sum += number
+#
+#             elif number < 0:
+#
+#                 if positive_seq_sum:
+#                     sums.append(positive_seq_sum)
+#                     positive_seq_sum = 0
+#
+#                 if not negative_seq_sum:
+#                     negative_seq_sum = number
+#                 else:
+#                     negative_seq_sum += number
+#
+#         if positive_seq_sum: sums.append(positive_seq_sum)
+#         if negative_seq_sum: sums.append(negative_seq_sum)
+#
+#         if len(sums) == 0:
+#             print('only zeros in nums')
+#             return 0
+#
+#         print(nums)
+#         print(sums)
+#
+#         max_sum = 0
+#         subarray_sum = 0
+#         for a_sum in sums:
+#
+#             if not subarray_sum and a_sum > 0:
+#                 subarray_sum = a_sum
+#                 if subarray_sum > max_sum: max_sum = subarray_sum
+#
+#             elif subarray_sum and a_sum < 0:
+#                 subarray_sum += a_sum
+#                 if subarray_sum <= 0: subarray_sum = 0
+#
+#             elif subarray_sum and a_sum > 0:
+#                 subarray_sum += a_sum
+#                 if subarray_sum > max_sum: max_sum = subarray_sum
+#
+#         if max_sum:
+#             print('subarray is found')
+#             return max_sum
+#         else:
+#             print('only negative numbers in nums, the biddgest negative is returned')
+#             return max(nums)
+
+
+# Testcases
+# solution = Solution()
+# print(solution.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]), '--> expected: ', 6)
+# print(solution.maxSubArray([1]), '--> expected: ', 1)
+# print(solution.maxSubArray([-7,-2,-6]), '--> expected: ', -2)
+# print(solution.maxSubArray([1,1,1]), '--> expected: ', 3)
+# print(solution.maxSubArray([-2,-2,-2]), '--> expected: ', -2)
+# print(solution.maxSubArray([0,0,-2]), '--> expected: ', 0)
+# print(solution.maxSubArray([0,0,0]), '--> expected: ', 0)
+# print(solution.maxSubArray([1,-2,4,-2,1]), '--> expected: ', 4)
+
+
