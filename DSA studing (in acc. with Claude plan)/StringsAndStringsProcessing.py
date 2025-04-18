@@ -97,3 +97,59 @@ There will be at least one word in s.
 # print(solution.lengthOfLastWord("luffy is still joyboy"), '-->', 6)
 
 
+# https://leetcode.com/problems/valid-anagram/
+'''
+242. Valid Anagram
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+ 
+
+Example 1:
+Input: s = "anagram", t = "nagaram"
+Output: true
+
+Example 2:
+Input: s = "rat", t = "car"
+Output: false
+
+ 
+
+Constraints:
+
+1 <= s.length, t.length <= 5 * 10 ** 4
+s and t consist of lowercase English letters.
+ 
+Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+'''
+# Solution1
+# from collections import Counter
+#
+# class Solution:
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         if len(s) != len(t):
+#             return False
+#
+#         s_counter = Counter(s)
+#         t_counter = Counter(t)
+#
+#         return not any((s_counter - t_counter).values())
+
+
+#Solution2
+# class Solution:
+#     def isAnagram(self, s: str, t: str) -> bool:
+#         if len(s) != len(t):
+#             return False
+#
+#         s_list = [x for x in s]
+#         s_list.sort()
+#         t_list = [y for y in t]
+#         t_list.sort()
+#
+#         return s_list == t_list
+
+# testcases
+# solution = Solution()
+# print(solution.isAnagram("anagram", "nagaram"), 'expected:', True)
+# print(solution.isAnagram("rat", "car"), 'expected:', False)
+
