@@ -153,3 +153,86 @@ Follow up: What if the inputs contain Unicode characters? How would you adapt yo
 # print(solution.isAnagram("anagram", "nagaram"), 'expected:', True)
 # print(solution.isAnagram("rat", "car"), 'expected:', False)
 
+# https://leetcode.com/problems/longest-palindromic-substring/
+'''
+5. Longest Palindromic Substring
+
+Given a string s, return the longest palindromic substring in s. 
+
+Example 1:
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+
+Example 2:
+Input: s = "cbbd"
+Output: "bb" 
+
+Constraints:
+
+1 <= s.length <= 1000
+s consist of only digits and English letters.
+'''
+# Solution 1
+# class Solution:
+#     def longestPalindrome(self, s: str) -> str:
+#         if s == s[::-1]:
+#             return s
+#
+#         counter = {}
+#         for index, char in enumerate(s):
+#             if char in counter:
+#                 counter[char].append(index)
+#             else:
+#                 counter[char] = [index]
+#
+#         max_palindrome = s[0]
+#         for char in counter:
+#             while counter[char]:
+#                 for index in counter[char][1:]:
+#                     subarray = s[counter[char][0]:index + 1]
+#                     if subarray == subarray[::-1] and len(subarray) > len(max_palindrome):
+#                         max_palindrome = subarray
+#                 del counter[char][0]
+#
+#         return max_palindrome
+
+# Solution2
+# class Solution:
+#     def longestPalindrome(self, s: str) -> str:
+#         if s == s[::-1]:
+#             return s
+#
+#         max_palindrome = s[0]
+#         may_be_palindrome = ''
+#         for char in s:
+#             if may_be_palindrome == may_be_palindrome[::-1] and len(may_be_palindrome) > len(max_palindrome):
+#                 max_palindrome = may_be_palindrome
+#
+#             if (may_be_palindrome + char)[::-1] in s:
+#                 may_be_palindrome += char
+#
+#             else:
+#                 while may_be_palindrome:
+#                     may_be_palindrome = may_be_palindrome[1:]
+#                     if (may_be_palindrome + char)[::-1] in s:
+#                         break
+#                 may_be_palindrome += char
+#
+#         if may_be_palindrome == may_be_palindrome[::-1] and len(may_be_palindrome) > len(max_palindrome):
+#             max_palindrome = may_be_palindrome
+#
+#         return max_palindrome
+
+# testcases
+# solution = Solution()
+# print(solution.longestPalindrome('34abcdcbcdcbaf'), 'expected', 'abcdcbcdcba')
+# print(solution.longestPalindrome('3aba4cdcbcdcbaf'), 'expected', 'cdcbcdc')
+# print(solution.longestPalindrome('cdc'), 'expected', 'cdc')
+# print(solution.longestPalindrome('acdc'), 'expected', 'cdc')
+# print(solution.longestPalindrome('babad'), 'expected', 'bab')
+# print(solution.longestPalindrome('cbbd'), 'expected', 'bb')
+# print(solution.longestPalindrome('aacabdkacaa'), 'expected', 'aca')
+# print(solution.longestPalindrome('abacab'), 'expected', 'bacab')
+
+
