@@ -129,3 +129,84 @@ Constraints:
 #         return not len(nums) == len(set(nums))
 
 
+# https://leetcode.com/problems/group-anagrams/description/
+'''
+49. Group Anagrams
+
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+
+Example 1:
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+Explanation:
+There is no string in strs that can be rearranged to form "bat".
+The strings "nat" and "tan" are anagrams as they can be rearranged to form each other.
+The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
+
+Example 2:
+Input: strs = [""]
+Output: [[""]]
+
+Example 3:
+Input: strs = ["a"]
+Output: [["a"]]
+
+Constraints:
+1 <= strs.length <= 10 ** 4
+0 <= strs[i].length <= 100
+strs[i] consists of lowercase English letters.
+'''
+# #Solution1
+# from typing import List
+# from collections import Counter
+#
+# class Solution:
+#     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+#
+#         res = [[strs[0]]]
+#         for word in strs[1:]:
+#             for group in res:
+#                 if len(word) == len(group[0]):
+#                     if Counter(word) == Counter(group[0]):
+#                         group += [word]
+#                         break
+#             else:
+#                 res += [[word]]
+#
+#         return res
+#
+# #Solution2
+# from typing import List
+# from itertools import groupby
+#
+# class Solution:
+#     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+#
+#         sorted_strs = sorted(strs, key=lambda x: sorted(Counter(x).items()))
+#         res = [list(group) for key, group in groupby(sorted_strs, key=lambda x: sorted(Counter(x).items()))]
+#
+#         return res
+#
+# #Solution3
+# from typing import List
+# from collections import defaultdict
+#
+#
+# class Solution:
+#     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+#
+#         dd = defaultdict(list)
+#         for word in strs:
+#             key = [x for x in word]
+#             key.sort()
+#             dd[''.join(key)].append(word)
+#
+#         return list(dd.values())
+
+# testcases
+# solution = Solution()
+# print(solution.groupAnagrams(["eat","tea","tan","ate","nat","bat"]), 'expected: ', [["bat"],["nat","tan"],["ate","eat","tea"]])
+# print(solution.groupAnagrams([""]), 'expected: ', [[""]])
+
+
