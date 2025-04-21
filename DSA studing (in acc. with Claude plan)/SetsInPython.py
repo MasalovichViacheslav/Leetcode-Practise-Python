@@ -25,3 +25,57 @@ Constraints:
 #         return list(set(nums1).intersection(set(nums2)))
 
 
+# https://leetcode.com/problems/happy-number/
+'''
+202. Happy Number
+
+Write an algorithm to determine if a number n is happy.
+
+A happy number is a number defined by the following process:
+
+1. Starting with any positive integer, replace the number by the sum of the squares of its digits.
+2. Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not 
+include 1.
+3. Those numbers for which this process ends in 1 are happy.
+Return true if n is a happy number, and false if not.
+
+Example 1:
+Input: n = 19
+Output: true
+Explanation:
+1**2 + 9**2 = 82
+8**2 + 2**2 = 68
+6**2 + 8**2 = 100
+1**2 + 0**2 + 0**2 = 1
+
+Example 2:
+Input: n = 2
+Output: false
+ 
+Constraints:
+1 <= n <= 2 ** 31 - 1
+'''
+# class Solution:
+#     def isHappy(self, n: int) -> bool:
+#
+#         previous_ns = set()
+#         new_ns = {n}
+#
+#         while previous_ns != new_ns:
+#             squares = [int(x) ** 2 for x in str(n)]
+#             n = sum(squares)
+#             if n == 1:
+#                 return True
+#             previous_ns = new_ns.copy()
+#             new_ns.update({n})
+#
+#         return False
+#
+# # testcases
+# solution = Solution()
+# print(solution.isHappy(19), 'expected:', True)
+# print(solution.isHappy(2), 'expected:', False)
+# print(solution.isHappy(0), 'expected:', False)
+# print(solution.isHappy(1), 'expected:', True)
+
+
