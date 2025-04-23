@@ -64,3 +64,56 @@ Constraints:
 # print(solution.countSymmetricIntegers(1000, 3899), '-->', 198)
 
 
+# https://leetcode.com/problems/count-largest-group/description/?envType=daily-question&envId=2025-04-23
+'''
+1399. Count Largest Group
+
+You are given an integer n.
+Each number from 1 to n is grouped according to the sum of its digits.
+Return the number of groups that have the largest size.
+
+Example 1:
+Input: n = 13
+Output: 4
+Explanation: There are 9 groups in total, they are grouped according sum of its digits of numbers from 1 to 13:
+[1,10], [2,11], [3,12], [4,13], [5], [6], [7], [8], [9].
+There are 4 groups with largest size.
+
+Example 2:
+Input: n = 2
+Output: 2
+Explanation: There are 2 groups [1], [2] of size 1. 
+
+Constraints:
+1 <= n <= 10 ** 4
+'''
+# from collections import defaultdict, Counter
+#
+# class Solution:
+#     def countLargestGroup(self, n: int) -> int:
+#         dd = defaultdict(list)
+#         for number in range(1, n + 1):
+#             if number < 10:
+#                 digits_sum = number
+#             elif 10 <= number <= 99:
+#                 digits_sum = number // 10 + number % 10
+#             elif 100 <= number <= 999:
+#                 digits_sum = number // 100 + number // 10 % 10 + number % 10
+#             elif 1000 <= number <= 9999:
+#                 digits_sum = number // 1000 + number // 100 % 10 + number // 10 % 10 + number % 10
+#             else:
+#                 digits_sum = 1
+#
+#             dd[digits_sum].append(number)
+#
+#         groups_lens = [len(x) for x in dd.values()]
+#         counter = Counter(groups_lens)
+#
+#         return counter[max(counter)]
+
+# testcases
+# solution = Solution()
+# print(solution.countLargestGroup(13), 'expected:', 4)
+# print(solution.countLargestGroup(2), 'expected:', 2)
+
+
