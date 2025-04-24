@@ -153,3 +153,78 @@ s is a valid parentheses string.
 # print(solution.removeOuterParentheses("()()"), 'expected:', '')
 
 
+# https://leetcode.com/problems/daily-temperatures/
+'''
+739. Daily Temperatures
+
+Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] 
+is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for 
+which this is possible, keep answer[i] == 0 instead.
+
+Example 1:
+Input: temperatures = [73,74,75,71,69,72,76,73]
+Output: [1,1,4,2,1,1,0,0]
+
+Example 2:
+Input: temperatures = [30,40,50,60]
+Output: [1,1,1,0]
+
+Example 3:
+Input: temperatures = [30,60,90]
+Output: [1,1,0] 
+
+Constraints:
+1 <= temperatures.length <= 10 * 5
+30 <= temperatures[i] <= 100
+'''
+#Solution1
+# from typing import List
+#
+# class Solution:
+#     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+#
+#         result = []
+#         for ind, temp in enumerate(temperatures):
+#             for index, temperature in enumerate(temperatures[ind + 1:], start=ind+1):
+#                 if temperature > temp:
+#                     result.append(index - ind)
+#                     break
+#             else:
+#                 result.append(0)
+#
+#         return result
+#
+# #Solution2
+# from typing import List
+#
+# class Solution:
+#     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+#
+#         non_increasing_stack = []
+#         result = []
+#
+#         for index, temperature in enumerate(temperatures[:-1]):
+#
+#             if temperatures[index + 1] > temperature:
+#                 result.append(1)
+#                 while non_increasing_stack:
+#                     if temperatures[index + 1] > non_increasing_stack[-1][1]:
+#                         result[non_increasing_stack[-1][0]] = index + 1 - non_increasing_stack[-1][0]
+#                         non_increasing_stack.pop()
+#                     else:
+#                         break
+#             else:
+#                 result.append(0)
+#                 non_increasing_stack.append((index, temperature))
+#
+#         result.append(0)
+#         return result
+#
+# # testcases
+# solution = Solution()
+# print(solution.dailyTemperatures([73,74,75,71,69,72,76,73]), 'expected:', [1,1,4,2,1,1,0,0])
+# print(solution.dailyTemperatures([30,40,50,60]), 'expected:', [1,1,1,0])
+# print(solution.dailyTemperatures([30,60,90]), 'expected:', [1,1,0])
+# print(solution.dailyTemperatures([90,60,30]), 'expected:', [0,0,0])
+# print(solution.dailyTemperatures([90]), 'expected:', [0])
+
