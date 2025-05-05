@@ -76,3 +76,66 @@ Follow up: Can you solve it using O(1) (i.e. constant) memory?
 #         return None
 
 
+# https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+'''
+19. Remove Nth Node From End of List
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+Example 1:
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+
+Example 2:
+Input: head = [1], n = 1
+Output: []
+
+Example 3:
+Input: head = [1,2], n = 1
+Output: [1]
+ 
+
+Constraints:
+The number of nodes in the list is sz.
+1 <= sz <= 30
+0 <= Node.val <= 100
+1 <= n <= sz
+ 
+
+Follow up: Could you do this in one pass?
+'''
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# class Solution:
+#     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+#
+#         current_node = head
+#         before_nth_node, nth_node, after_nth_node = None, None, None
+#         size = 1
+#
+#         while current_node:
+#             if after_nth_node: after_nth_node = after_nth_node.next
+#             if nth_node: nth_node = nth_node.next
+#             if before_nth_node: before_nth_node = before_nth_node.next
+#
+#             if size - n == -1: after_nth_node = head
+#             if size - n == 0: nth_node = head
+#             if size - n == 1: before_nth_node = head
+#
+#             size += 1
+#             current_node = current_node.next
+#
+#         if after_nth_node and before_nth_node:
+#             before_nth_node.next = after_nth_node
+#         elif after_nth_node and not before_nth_node:
+#             head = after_nth_node
+#         elif before_nth_node and not after_nth_node:
+#             before_nth_node.next = None
+#         else:
+#             head = None
+#
+#         return head
+
