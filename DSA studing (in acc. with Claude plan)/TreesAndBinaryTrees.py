@@ -164,3 +164,69 @@ The number of nodes in the tree is in the range [0, 10**4].
 # print(solution.maxDepth(node1))
 
 
+# https://leetcode.com/problems/same-tree/
+'''
+100. Same Tree
+
+Given the roots of two binary trees p and q, write a function to check if they are the same or not.
+Two binary trees are considered the same if they are structurally identical, and the nodes have the same value. 
+
+Example 1:
+Input: p = [1,2,3], q = [1,2,3]
+Output: true
+
+Example 2:
+Input: p = [1,2], q = [1,null,2]
+Output: false
+
+Example 3:
+Input: p = [1,2,1], q = [1,1,2]
+Output: false
+ 
+
+Constraints:
+The number of nodes in both trees is in the range [0, 100].
+-10 ** 4 <= Node.val <= 10 ** 4
+'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# class Solution:
+#     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+#
+#         if not p and not q:
+#             return True
+#         if not p or not q:
+#             return False
+#
+#         stack_p = [p]
+#         stack_q = [q]
+#
+#         while stack_q and stack_p:
+#             node_p = stack_p.pop(); node_q = stack_q.pop()
+#
+#             if node_p.val != node_q.val:
+#                 return False
+#
+#             if node_p.left and node_q.left:
+#                 stack_p.append(node_p.left)
+#                 stack_q.append(node_q.left)
+#             elif not node_p.left and not node_q.left:
+#                 pass
+#             else:
+#                 return False
+#
+#             if node_p.right and node_q.right:
+#                 stack_p.append(node_p.right)
+#                 stack_q.append(node_q.right)
+#             elif not node_p.right and not node_q.right:
+#                 pass
+#             else:
+#                 return False
+#
+#         return True
+
+
