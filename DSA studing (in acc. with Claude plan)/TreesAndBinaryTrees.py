@@ -294,3 +294,67 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 #         return result
 
 
+# https://leetcode.com/problems/symmetric-tree/description/
+'''
+101. Symmetric Tree
+
+Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
+
+Example 1:
+Input: root = [1,2,2,3,4,4,3]
+Output: true
+
+Example 2:
+Input: root = [1,2,2,null,3,null,3]
+Output: false
+
+Constraints:
+The number of nodes in the tree is in the range [1, 1000].
+-100 <= Node.val <= 100
+ 
+
+Follow up: Could you solve it both recursively and iteratively?
+'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# class Solution:
+#     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+#
+#         if not root:
+#             return True
+#
+#         left_stack = [root]; right_stack = [root]
+#
+#         while left_stack and right_stack:
+#             left_node = left_stack.pop()
+#             right_node = right_stack.pop()
+#
+#             if left_node.val != right_node.val:
+#                 return False
+#
+#             if left_node.left and right_node.right:
+#                 left_stack.append(left_node.left)
+#                 right_stack.append(right_node.right)
+#             elif not left_node.left and not right_node.right:
+#                 pass
+#             else:
+#                 return False
+#
+#             if left_node.right and right_node.left:
+#                 left_stack.append(left_node.right)
+#                 right_stack.append(right_node.left)
+#             elif not left_node.right and not right_node.left:
+#                 pass
+#             else:
+#                 return False
+#
+#         if left_stack or right_stack:
+#             return False
+#
+#         return True
+
+
