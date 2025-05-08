@@ -230,3 +230,67 @@ The number of nodes in both trees is in the range [0, 100].
 #         return True
 
 
+# https://leetcode.com/problems/binary-tree-inorder-traversal/
+'''
+94. Binary Tree Inorder Traversal
+
+Given the root of a binary tree, return the inorder traversal of its nodes' values.
+
+Example 1:
+Input: root = [1,null,2,3]
+Output: [1,3,2]
+
+Example 2:
+Input: root = [1,2,3,4,5,null,8,null,null,6,7,9]
+Output: [4,2,6,5,7,1,3,9,8]
+
+Example 3:
+Input: root = []
+Output: []
+
+Example 4:
+Input: root = [1]
+Output: [1]
+ 
+
+Constraints:
+The number of nodes in the tree is in the range [0, 100].
+-100 <= Node.val <= 100
+ 
+Follow up: Recursive solution is trivial, could you do it iteratively?
+'''
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# Solution 1
+# class Solution:
+#     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+#
+#         if not root:
+#             return []
+#
+#         result = []
+#         left_visited = True; left_not_visited = False
+#         stack = [[root, left_not_visited]]
+#
+#         while stack:
+#             node_info = stack.pop()
+#
+#             if node_info[1] is left_visited:
+#                 result.append(node_info[0].val)
+#                 continue
+#
+#             if node_info[0].right:
+#                 stack.append([node_info[0].right, left_not_visited])
+#
+#             stack.append([node_info[0], left_visited])
+#
+#             if node_info[0].left:
+#                 stack.append([node_info[0].left, left_not_visited])
+#
+#         return result
+
+
