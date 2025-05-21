@@ -100,3 +100,81 @@ At most 10**4 calls will be made to add.
 # param_1 = obj.add(val)
 
 
+# https://leetcode.com/problems/top-k-frequent-elements/description/
+'''
+347. Top K Frequent Elements
+
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any 
+order. 
+
+Example 1:
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+
+Example 2:
+Input: nums = [1], k = 1
+Output: [1]
+ 
+
+Constraints:
+1 <= nums.length <= 10**5
+-10**4 <= nums[i] <= 10**4
+k is in the range [1, the number of unique elements in the array].
+It is guaranteed that the answer is unique.
+
+Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+'''
+# Solution1
+# from typing import List
+# from collections import Counter
+# import heapq
+#
+# class Solution:
+#     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+#         nums_repeats = Counter(nums)
+#         the_heap = []
+#         for num, repeats in nums_repeats.items():
+#             heapq.heappush(the_heap, (repeats, num))
+#         return [pair[1] for pair in heapq.nlargest(k, the_heap)]
+#
+# # Solution2
+# from typing import List
+# from collections import Counter
+# import heapq
+#
+# class Solution:
+#     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+#         nums_repeats = Counter(nums)
+#         the_heap = []
+#
+#         for num, repeats in nums_repeats.items():
+#             if len(the_heap) < k:
+#                 heapq.heappush(the_heap, (repeats, num))
+#             elif repeats >= the_heap[0][0]:
+#                 heapq.heapreplace(the_heap, (repeats, num))
+#         return [pair[1] for pair in heapq.nlargest(k, the_heap)]
+#
+# # Solution3
+# from typing import List
+# from collections import Counter
+# import heapq
+#
+# class Solution:
+#     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+#         nums_repeats = Counter(nums)
+#         the_heap = []
+#
+#         for num, repeats in nums_repeats.items():
+#             if len(the_heap) < k:
+#                 heapq.heappush(the_heap, (repeats, num))
+#             elif repeats >= the_heap[0][0]:
+#                 heapq.heapreplace(the_heap, (repeats, num))
+#         return [pair[1] for pair in the_heap]
+#
+#
+#
+# solution = Solution()
+#
+# print(solution.topKFrequent([3,0,1,0], 1))
+
+
