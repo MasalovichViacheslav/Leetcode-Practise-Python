@@ -208,3 +208,89 @@ grid[i][j] is either 0 or 1.
 # print(solution.maxAreaOfIsland(sample_grid), "expected:", 0)
 
 
+# https://leetcode.com/problems/island-perimeter/description/
+'''
+463. Island Perimeter
+
+You are given row x col grid representing a map where grid[i][j] = 1 represents land and grid[i][j] = 0 represents 
+water.
+
+Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and 
+there is exactly one island (i.e., one or more connected land cells).
+
+The island doesn't have "lakes", meaning the water inside isn't connected to the water around the island. One cell is a 
+square with side length 1. The grid is rectangular, width and height don't exceed 100. Determine the perimeter of the 
+island.
+
+Example 1:
+Input: grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
+Output: 16
+Explanation: The perimeter is the 16 yellow stripes in the image above.
+
+Example 2:
+Input: grid = [[1]]
+Output: 4
+
+Example 3:
+Input: grid = [[1,0]]
+Output: 4
+ 
+Constraints:
+row == grid.length
+col == grid[i].length
+1 <= row, col <= 100
+grid[i][j] is 0 or 1.
+There is exactly one island in grid.
+'''
+# Solution1
+# from typing import List
+#
+# class Solution:
+#     def islandPerimeter(self, grid: List[List[int]]) -> int:
+#         m, n = len(grid), len(grid[0])
+#         visited = set()
+#
+#         def explore_island(position):
+#             island = [position]
+#             perimeter = 0
+#             directions = ((-1, 0), (0, 1), (1, 0), (0, -1))
+#             while island:
+#                 row_ind, col_ind = island.pop()
+#                 visited.add((row_ind, col_ind))
+#                 for row_change, col_change in directions:
+#                     new_row = row_ind + row_change
+#                     new_col = col_ind + col_change
+#                     if not (0 <= new_row < m and 0 <= new_col < n):
+#                         perimeter += 1
+#                     elif grid[new_row][new_col] == 0:
+#                         perimeter += 1
+#                     elif (new_row, new_col) not in visited:
+#                         island.append((new_row, new_col))
+#                         visited.add((new_row, new_col))
+#             return perimeter
+#
+#         for r in range(m):
+#             for c in range(n):
+#                 if grid[r][c]:
+#                     return explore_island((r, c))
+#
+# # testcases
+# solution = Solution()
+# sample_grid = [
+#     [0,1,0,0],
+#     [1,1,1,0],
+#     [0,1,0,0],
+#     [1,1,0,0]
+# ]
+# print(solution.islandPerimeter(sample_grid), 'expected:', 16)
+#
+# sample_grid = [[1]]
+# print(solution.islandPerimeter(sample_grid), 'expected:', 4)
+#
+# sample_grid = [[1, 0]]
+# print(solution.islandPerimeter(sample_grid), 'expected:', 4)
+#
+# sample_grid = [[1,1],[1,1]]
+# print(solution.islandPerimeter(sample_grid), 'expected:', 8)
+
+
