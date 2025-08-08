@@ -186,3 +186,103 @@ Constraints:
 #      86,  86,  91,  92,  92,  93,  95,  98
 # ]
 # print(solution.sortArray(nums), '\nexpected:\n', sorted_nums, f'\nresult is as expected - {nums == sorted_nums}')
+
+
+# https://leetcode.com/problems/sort-colors/description/
+"""
+75. Sort Colors
+
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color 
+are adjacent, with the colors in the order red, white, and blue.
+
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+You must solve this problem without using the library's sort function.
+
+Example 1:
+
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+Example 2:
+
+Input: nums = [2,0,1]
+Output: [0,1,2]
+ 
+
+Constraints:
+
+n == nums.length
+1 <= n <= 300
+nums[i] is either 0, 1, or 2.
+"""
+# Solution 1
+# from typing import List
+#
+# class Solution:
+#     def sortColors(self, nums: List[int]) -> None:
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         for i in range(1, len(nums)):
+#             current_color = nums[i]
+#             j = i - 1
+#
+#             while j >= 0 and nums[j] > current_color:
+#                 nums[j + 1] = nums[j]
+#                 j -= 1
+#
+#             nums[j + 1] = current_color
+
+# Solution 2
+# from typing import List
+#
+# class Solution:
+#     def sortColors(self, nums: List[int]) -> None:
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         last_red_ind = None
+#
+#
+#         for i in range(1, len(nums)):
+#             current_color = nums[i]
+#             if current_color == 0 and not last_red_ind:
+#                 j = i - 1
+#
+#                 while j >= 0 and nums[j] > current_color:
+#                     nums[j + 1] = nums[j]
+#                     j -= 1
+#
+#                 nums[j + 1] = current_color
+#                 last_red_ind = j + 1
+#
+#             elif current_color == 0:
+#                 nums[last_red_ind + 1: i + 1] = [nums[i]] + nums[last_red_ind + 1: i]
+#                 last_red_ind += 1
+#
+#             else:
+#                 j = i - 1
+#
+#                 while j >= 0 and nums[j] > current_color:
+#                     nums[j + 1] = nums[j]
+#                     j -= 1
+#
+#                 nums[j + 1] = current_color
+
+# solution = Solution()
+# nums = [2,0,2,1,1,0]
+# print(nums)
+# solution.sortColors(nums)
+# print("sorted:\n", nums, sep='')
+# nums = [2,0,1]
+# print(nums)
+# solution.sortColors(nums)
+# print("sorted:\n", nums, sep='')
+
+
+
+
+
+
+
+
