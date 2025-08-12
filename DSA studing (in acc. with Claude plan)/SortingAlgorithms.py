@@ -24,6 +24,7 @@ Constraints:
 1 <= nums.length <= 5 * 10**4
 -5 * 10**4 <= nums[i] <= 5 * 10**4
 """
+from tokenize import group
 
 # Solution 1
 # from typing import List
@@ -328,6 +329,106 @@ intervals[i].length == 2
 # print(solution.merge([[1,4],[2,3]]), 'expected:', [[1,4]])
 
 
+# https://leetcode.com/problems/largest-number/description/
+"""
+179. Largest Number
+
+Given a list of non-negative integers nums, arrange them such that they form the largest number and return it.
+
+Since the result may be very large, so you need to return a string instead of an integer.
+
+Example 1:
+Input: nums = [10,2]
+Output: "210"
+
+Example 2:
+Input: nums = [3,30,34,5,9]
+Output: "9534330"
+ 
+Constraints:
+
+1 <= nums.length <= 100
+0 <= nums[i] <= 10**9
+"""
+# Solution 1
+# from typing import List
+#
+# class Solution:
+#     def largestNumber(self, nums: List[int]) -> str:
+#
+#         only_zeros = True
+#
+#         nums[0] = str(nums[0])
+#
+#         if nums[0] != '0':
+#             only_zeros = False
+#
+#         for i in range(1, len(nums)):
+#             nums[i] = str(nums[i])
+#             current_num = nums[i]
+#             if current_num != '0':
+#                 only_zeros = False
+#             j = i - 1
+#
+#             while j >= 0 and nums[j] + current_num < current_num + nums[j]:
+#                 nums[j + 1] = nums[j]
+#                 j -= 1
+#
+#             nums[j + 1] = current_num
+#
+#         return ''.join(nums) if only_zeros is False else '0'
+
+# Solution 2
+# from typing import List
+#
+# class Solution:
+#     def largestNumber(self, nums: List[int]) -> str:
+#
+#         without_duplicates = set(nums)
+#         if len(without_duplicates) == 1 and 0 in without_duplicates:
+#             return '0'
+#
+#         return ''.join(self.str_quick_sort([str(num) for num in nums]))
+#
+#     def str_quick_sort(self, str_array: str):
+#
+#         if len(str_array) < 2:
+#             return str_array
+#
+#         smaller, same, bigger = [], [], []
+#
+#         pivot = str_array[len(str_array) // 2]
+#
+#         for elem in str_array:
+#             if elem + pivot > pivot + elem:
+#                 bigger.append(elem)
+#             elif elem + pivot == pivot + elem:
+#                 same.append(elem)
+#             else:
+#                 smaller.append(elem)
+#
+#         return self.str_quick_sort(bigger) + same + self.str_quick_sort(smaller)
+
+
+# solution = Solution()
+# print(solution.largestNumber([10,2]), "expected:", "210")
+# print(solution.largestNumber([3,30,34,5,9]), "expected:", "9534330")
+# print(solution.largestNumber([0,0]), "expected:", "0")
+# print(solution.largestNumber([30,34,9,98,99,998,9,0]), "expected:", "99999989834300")
+# nums = [
+#        4,   1,   8,  10,   9,   4,   4,   3,   4,   4,
+#        3,  10, 100,   1,   7,  53,  89,  39,  76,  43,
+#       28,  22,  85,  65,  44,  57,  50,  39,  11,  64,
+#       26,  71,  85,  48,  11,  57,  59,  43,  87,  92,
+#      374, 216, 539, 901, 510, 940, 102, 853, 535, 266,
+#      556, 461, 163, 725, 475, 337, 234, 337, 568, 653,
+#      330, 988, 629, 900, 808, 803, 373, 444, 906, 167,
+#      950, 102, 197, 806, 542, 769, 281, 566, 439, 973,
+#      847, 429, 689, 301, 823, 756, 707, 241, 545, 320,
+#      579, 533, 527, 107, 659, 175, 796, 374, 194, 993,
+# ]
+# print(solution.largestNumber(nums), "expected:", "9...")
+# print(solution.largestNumber([9, 993]), 'expected:', '9993')
 
 
 
